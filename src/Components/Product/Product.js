@@ -4,11 +4,10 @@ import React from "react";
 
 import "./Product.css";
 
-const Product = ({ handleAddToCart, product }) => {
-  // console.log(props);
-  // const { handleAddToCart, product } = props;
+const Product = (props) => {
+  const { handleAddToCart, product } = props;
   const { name, price, seller, ratings, img } = product;
-
+  // console.log(props);
   return (
     <div className="product">
       <img src={img} alt="" />
@@ -19,8 +18,8 @@ const Product = ({ handleAddToCart, product }) => {
         <p className="Manufacturer">Rating: {ratings}</p>
       </div>
       <button
-      // ?----------------- use an annoy func to sent data without auto call
-        onClick={handleAddToCart}
+        // ?----------------- use an annoy func to sent data without auto call
+        onClick={() => handleAddToCart(product)}
         className="btn-cart"
       >
         <p>Add To Cart</p>
